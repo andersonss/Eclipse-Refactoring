@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ltk.core.refactoring.refactoringContributions">
+      <contribution
+            class="AppleApricot.ChangeWhileToForRefactoringContribution"
+            id="AppleApricot.WhitToFor"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="Arnulfo Refactoring Actions"
+            id="AppleApricot.category"
+            name="Refactor - Arnulfo Tests"/>
+      <command
+            categoryId="org.eclipse.jdt.ui.category.refactoring"
+            description="Change while loop to enhance for loop"
+            id="AppleApricot.WhitToFor"
+            name="To Final">
+     </command>
+   
+   </extension>
+    <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="AppleApricot.WhitToFor"
+            class="AppleApricot.CmdHandler">
+            <enabledWhen>
+               <with variable="selection">
+                 <or>
+                   <instanceof value="org.eclipse.jface.text.ITextSelection"> 
+                  </instanceof>
+                  <instanceof value="org.eclipse.jface.viewers.IStructuredSelection"> 
+                  </instanceof> 
+                 </or>
+               </with>
+            </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="AppleApricot.WhitToFor.refactorings.menu"
+               label="hhhh">
+            <command
+                  commandId="AppleApricot.WhitToFor"
+                  label="Change while to for"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+</plugin>
