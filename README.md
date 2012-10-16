@@ -5,7 +5,7 @@ Source files require integration with platform components of the Eclipse plug-in
 
 Example of the refactoring:
 
-Before
+##Before
 
 	public void foo(Set<String> set) {
 		Iterator<String> itr = set.iterator();
@@ -15,7 +15,7 @@ Before
 		}
 	}
 
-After
+##After
 
 	public void foo(Set<String> set) {
 		for (String tempItr : set) {
